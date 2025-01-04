@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "main": "electron/main.js",
+  
   "scripts": {
     "dev": "next dev",
     "build": "next build",
