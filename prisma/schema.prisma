@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Snippet {
+  id          String    @id @default(cuid())
+  title       String
+  content     String
+  language    String
+  tags        Tag[]     @relation("SnippetToTag")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Tag {
+  id          String    @id @default(cuid())
+  name        String    @unique
+  snippets    Snippet[] @relation("SnippetToTag")
+  notes       Note[]    @relation("NoteToTag")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Note {
+  id          String    @id @default(cuid())
+  title       String
+  content     String
+  tags        Tag[]     @relation("NoteToTag")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+} 
