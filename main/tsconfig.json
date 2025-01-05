@@ -1,0 +1,17 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "../main",
+    "target": "es2021",
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["../*"],
+      "@shared/*": ["../src/shared/*"],
+      "@api/*": ["../src/api/*"]
+    }
+  },
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules"]
+} 
