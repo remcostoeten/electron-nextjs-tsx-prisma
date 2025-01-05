@@ -2,6 +2,12 @@
 module.exports = {
   distDir: 'out',
   images: {
-    unoptimized: true
-  }
+    unoptimized: true,
+  },
+  reactStrictMode: true,
+  swcMinify: true,
+  output: 'export',
+  experimental: {
+    appDir: false,
+  },
 } 

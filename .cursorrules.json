@@ -1,0 +1,137 @@
+{
+  "projectStructure": {
+    "src": {
+      "api": {
+        "db": ["index.ts", "schema.ts"],
+        "queries": {
+          "_pattern": "kebab-case",
+          "files": ["index.ts", "{query-name}.ts"],
+          "description": "Generic non-feature specific queries"
+        },
+        "mutations": {
+          "_pattern": "kebab-case",
+          "files": ["index.ts", "{mutation-name}.ts"],
+          "description": "Generic non-feature specific mutations"
+        },
+        "models": {
+          "_pattern": "kebab-case",
+          "files": ["index.ts", "{model-name}.z.ts"],
+          "description": "Zod validation schemas"
+        }
+      },
+      "components": {
+        "_description": "One-time use components and non-feature specific components",
+        "layout": ["header.tsx", "sidebar.tsx", "footer.tsx"]
+      },
+      "core": {
+        "config": ["site-config.ts", "fonts.ts"],
+        "types": ["{type-name}.d.ts"],
+        "animations": ["index.ts"]
+      },
+      "features": {
+        "{feature-name}": {
+          "components": ["index.ts", "{component-name}.tsx"],
+          "hooks": ["index.ts", "use-{hook-name}.ts"],
+          "utils": ["index.ts", "{util-name}.ts"],
+          "api": {
+            "queries": ["index.ts", "{query-name}.ts"],
+            "mutations": ["index.ts", "{mutation-name}.ts"],
+            "models": ["index.ts", "{model-name}.z.ts"]
+          }
+        }
+      },
+      "shared": {
+        "components": {
+          "ui": {
+            "_description": "shadcn/ui components",
+            "files": ["index.ts", "{component-name}.tsx"]
+          }
+        },
+        "helpers": ["index.ts", "{helper-name}.ts"],
+        "hooks": ["index.ts", "use-{hook-name}.ts"]
+      },
+      "services": ["{service-name}.service.ts"],
+      "styles": ["globals.css"]
+    },
+    "main": {
+      "_description": "Electron main process files",
+      "files": ["index.ts", "preload.ts"]
+    },
+    "renderer": {
+      "_description": "Next.js renderer process files",
+      "pages": ["_app.tsx", "index.tsx"],
+      "components": {
+        "_pattern": "kebab-case",
+        "files": ["{component-name}.tsx"]
+      }
+    },
+    "docs": {
+      "_description": "Documentation for important features and business logic",
+      "files": ["{feature-name}.mdx"]
+    },
+    "scripts": {
+      "_description": "Utility scripts",
+      "files": ["{script-name}.sh"]
+    }
+  },
+  "codingStandards": {
+    "general": {
+      "fileNaming": "kebab-case",
+      "preferTypes": true,
+      "interfaceUsage": "only when needed",
+      "exportStyle": "named exports in index.ts"
+    },
+    "components": {
+      "style": "function declarations",
+      "format": "props destructuring",
+      "example": [
+        "function ComponentName({ prop1, prop2 }) {",
+        "  const logic = someLogic",
+        "  return (",
+        "    <>",
+        "      {content}",
+        "    </>",
+        "  )",
+        "}"
+      ]
+    },
+    "documentation": {
+      "coreFiles": {
+        "format": "jsdoc",
+        "template": [
+          "/**",
+          " * @author Remco Stoeten",
+          " * @description Brief description",
+          " * @description Additional details if needed",
+          " */"
+        ]
+      },
+      "complexFeatures": {
+        "format": "mdx",
+        "location": "/docs/{feature-name}.mdx"
+      }
+    },
+    "imports": {
+      "style": "named imports",
+      "ordering": [
+        "react/next imports",
+        "external libraries",
+        "internal absolute imports",
+        "internal relative imports",
+        "types/interfaces",
+        "styles"
+      ]
+    }
+  },
+  "database": {
+    "naming": {
+      "models": "PascalCase",
+      "fields": "camelCase",
+      "enums": "PascalCase"
+    },
+    "location": {
+      "schema": "prisma/schema.prisma",
+      "migrations": "prisma/migrations"
+    }
+  }
+} 
